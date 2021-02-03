@@ -3,11 +3,11 @@ import DynamicTable from "../Table/DynamicTable";
 
 const PartnerSetup = () => {
     const columns = [
-        {
-            field: 'id',
-            headerName: 'ID',
-            width: 130 ,
-        },
+        // {
+        //     field: 'id',
+        //     headerName: 'ID',
+        //     width: 130 ,
+        // },
         {
             field: 'firstName',
             headerName: 'First name',
@@ -52,9 +52,16 @@ const PartnerSetup = () => {
         { id: 20, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
     ];
 
+    const onDeleteClick = (ids) => {
+        console.log('onDeleteClick', ids);
+    };
+    const onEditClick = (values) => {
+        console.log('onEditClick', values);
+    };
+
     return(
          <div>
-             <DynamicTable GetHeadCells={columns} dataSource={rows} />
+             <DynamicTable GetHeadCells={columns} dataSource={rows} Delete={onDeleteClick} onEdit={onEditClick} />
          </div>
 
      )
