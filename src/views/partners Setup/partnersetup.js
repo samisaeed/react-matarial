@@ -1,5 +1,7 @@
 import React from "react";
 import DynamicTable from "../Table/DynamicTable";
+import ConfirmBox from "../confirmbox/ConfirmBox";
+import Spinner from "../Loader/Spinner";
 
 const PartnerSetup = () => {
     const columns = [
@@ -59,11 +61,29 @@ const PartnerSetup = () => {
         console.log('onEditClick', values);
     };
 
+ const onAddClick = (values) => {
+        console.log('onAddClick', values);
+    };
+
+ const onViewClick = (values) => {
+        console.log('onViewClick', values);
+    };
+ const openDialog = (values) => {
+        console.log('openDialog', values);
+    };
+
     return(
          <div>
-             <DynamicTable GetHeadCells={columns} dataSource={rows} Delete={onDeleteClick} onEdit={onEditClick} />
+             <DynamicTable
+                 GetHeadCells={columns}
+                 dataSource={rows}
+                 Delete={onDeleteClick}
+                 onEdit={onEditClick}
+                 Add={onAddClick}
+                 View={onViewClick}
+             />
+             {/*<Spinner/>*/}
          </div>
-
      )
  };
 export default PartnerSetup;
